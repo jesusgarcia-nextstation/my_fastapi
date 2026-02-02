@@ -1,0 +1,10 @@
+# Dependencias de FastAPI (incluye CLI)
+fastapi[standard]
+python-jose
+passlib
+bcrypt
+pymongo
+uvicorn>=0.30.0
+
+# Herramientas de desarrollo
+ruff>=0.8.0
