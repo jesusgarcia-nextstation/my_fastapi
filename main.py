@@ -12,7 +12,44 @@ from fastapi.staticfiles import StaticFiles
 
 from routers import products, users
 
-app = FastAPI()
+# Metadatos de la aplicación para OpenAPI/Swagger
+description = """
+## API de FastAPI - Demo
+
+Esta es una API de ejemplo construida con FastAPI que demuestra:
+- Operaciones CRUD básicas
+- Documentación automática con Swagger UI
+- Validación de datos con Pydantic
+
+### Características:
+- **Usuarios**: Gestión de usuarios con operaciones CRUD
+- **Productos**: Listado y búsqueda de productos
+
+### Uso:
+- Documentación Swagger: `/docs`
+- Documentación ReDoc: `/redoc`
+- OpenAPI JSON: `/openapi.json`
+"""
+
+app = FastAPI(
+    title='FastAPI Demo API',
+    description=description,
+    summary='API de demostración con FastAPI y documentación Swagger',
+    version='1.0.0',
+    terms_of_service='https://example.com/terms/',
+    contact={
+        'name': 'Desarrollador',
+        'url': 'https://github.com/mouredev',
+        'email': 'dev@example.com',
+    },
+    license_info={
+        'name': 'MIT License',
+        'url': 'https://opensource.org/licenses/MIT',
+    },
+    docs_url='/docs',
+    redoc_url='/redoc',
+    openapi_url='/openapi.json',
+)
 
 # Clase en vídeo: https://youtu.be/_y9qQZXE24A?t=12475
 app.include_router(products.router)
