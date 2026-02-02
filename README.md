@@ -65,21 +65,58 @@ ruff format .
 
 ## Endpoints
 
+### Principal
+
 | Método | Ruta | Descripción |
 |--------|------|-------------|
 | GET | `/` | Mensaje de bienvenida |
 | GET | `/saludo/{nombre}` | Saludo personalizado |
 | GET | `/ping` | Verificar estado |
 
+### Users
+
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| GET | `/users/` | Obtener todos los usuarios |
+| GET | `/users/{user_id}` | Obtener usuario por ID |
+| POST | `/users/` | Crear usuario |
+| PUT | `/users/{user_id}` | Actualizar usuario |
+| DELETE | `/users/{user_id}` | Eliminar usuario |
+
+### Products
+
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| GET | `/products/` | Obtener todos los productos |
+| GET | `/products/{product_id}` | Obtener producto por ID |
+| POST | `/products/` | Crear producto |
+| PUT | `/products/{product_id}` | Actualizar producto |
+| DELETE | `/products/{product_id}` | Eliminar producto |
+
+## Archivos Estáticos
+
+La API sirve archivos estáticos desde el directorio `static/`:
+
+- **Imágenes:** `/static/images/{nombre_archivo}`
+- **JSON:** `/static/json/{nombre_archivo}`
+
 ## Estructura del Proyecto
 
 ```
 my_fastapi/
-├── main.py          # Aplicación FastAPI
-├── pyproject.toml   # Configuración del proyecto y Ruff
-├── requirements.txt # Dependencias
-├── .gitignore      # Archivos ignorados
-└── README.md       # Este archivo
+├── main.py              # Aplicación FastAPI
+├── pyproject.toml       # Configuración del proyecto y Ruff
+├── requirements.txt     # Dependencias
+├── .gitignore          # Archivos ignorados
+├── README.md           # Este archivo
+├── routers/
+│   ├── __init__.py
+│   ├── users.py        # Routers de usuarios
+│   └── products.py     # Routers de productos
+└── static/
+    ├── images/
+    └── json/
+        └── prueba.json
 ```
 
 ## Aprende Más
